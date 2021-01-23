@@ -7,11 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TicTacToeBoardComponent implements OnInit {
 
-  @Input("UserKeyPress") set receiveUserKeyPress(key: string) {
+  // @Input("UserKeyPress") set receiveUserKeyPress(key: string) {
 
-    console.log("GOT the key press to my component");
-    this.handleUserKeyPress(key);
-  }
+  //   console.log("GOT the key press to my component");
+  //   this.handleUserKeyPress(key);
+  // }
 
   boardContent: number[] =  [-1,-1,-1,-1,-1,-1,-1,-1,-1,];
   isSelected: boolean[] = [true,false,false,false,false,false,false,false,false];
@@ -32,6 +32,7 @@ export class TicTacToeBoardComponent implements OnInit {
  * 6 7 8
  */
   userLocation: number = 0;
+  userTurn: number = 0;
 
   private updateUserLocation() {
     for (let i = 0; i< this.isSelected.length; i++) {
@@ -51,6 +52,13 @@ export class TicTacToeBoardComponent implements OnInit {
     //   console.log(event.key);
     //   console.log(event.keyCode);
     // let move = event.key;
+
+    if (move == "Enter") {
+      if (this.boardContent[this.userLocation] == -1) {
+        this.boardContent[this.userLocation] = this.userTurn;
+        this.userTurn = (this.userTurn + 1) % 2;
+      }
+    }
 
     if (move == "w") {  // UP
       console.log("UP");
