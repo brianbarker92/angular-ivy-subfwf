@@ -2,31 +2,39 @@
 tic-tac-toe-board works!
 </p>
 <div class="main-board-panel">
-  <div class="tile">
+  <div id="zero-zero" class="selected-tile">
+    <div *ngIf="boardContent[0][0]==-1">
+      <p>empty</p>
+    </div>
+    <div *ngIf="boardContent[0][0]==0">
+      <p>0</p>
+    </div>
+    <div *ngIf="boardContent[0][0]==1">
+      <p>1</p>
+    </div>
+  </div>
+  <div id="zero-one" class="tile">
 
   </div>
-  <div class="tile">
+  <div id="zero-two" class="tile">
 
   </div>
-  <div class="tile">
+  <div id="one-zero" class="tile">
 
   </div>
-  <div class="tile">
+  <div id="one-one" class="tile">
 
   </div>
-  <div class="tile">
+  <div id="one-two" class="tile">
 
   </div>
-  <div class="tile">
+  <div id="two-zero" class="tile">
 
   </div>
-  <div class="tile">
+  <div id="two-one" class="tile">
 
   </div>
-  <div class="tile">
-
-  </div>
-  <div class="tile">
+  <div id="two-two" class="tile">
 
   </div>
 </div>

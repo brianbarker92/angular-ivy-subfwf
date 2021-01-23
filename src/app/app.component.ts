@@ -1,4 +1,4 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, HostListener, VERSION } from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -7,4 +7,11 @@ import { Component, VERSION } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Angular ' + VERSION.major;
+  userKey: string;
+
+
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) { 
+    this.userKey = event.key;
+  }
 }
