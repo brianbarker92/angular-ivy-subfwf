@@ -15,7 +15,7 @@ export class TicTacToeBoardComponent implements OnInit {
 
   boardContent: number[] =  [-1,-1,-1,-1,-1,-1,-1,-1,-1,];
   isSelected: boolean[] = [true,false,false,false,false,false,false,false,false];
-  
+
   constructor() { }
 
   ngOnInit() {
@@ -45,7 +45,7 @@ export class TicTacToeBoardComponent implements OnInit {
 
 //  private handleUserKeyPress(event: KeyboardEvent) {
 
-  private handleUserKeyPress(move: string) {
+  public handleUserKeyPress(move: string) {
     //   console.log("user keypress:");
     //   console.log(event);
     //   console.log(event.key);
