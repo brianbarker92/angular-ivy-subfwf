@@ -1,6 +1,19 @@
+<div *ngIf="checkForWinner(0)">
 <p>
-tic-tac-toe-board works!
+Player 0 wins!
 </p>
+</div>
+<div *ngIf="checkForWinner(1)">
+<p>
+Player 1 wins!
+</p>
+</div>
+<p>
+<button (click)="newGame()">New Game</button>
+</p>
+<div>
+  <p>Player {{userTurn}}'s Turn</p>
+</div>
 <div class="main-board-panel">
   <tile [selected]="isSelected[0]" [content]="boardContent[0]"></tile>
   <tile [selected]="isSelected[1]" [content]="boardContent[1]"></tile>

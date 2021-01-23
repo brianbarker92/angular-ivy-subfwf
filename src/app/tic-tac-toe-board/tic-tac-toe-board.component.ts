@@ -21,7 +21,7 @@ export class TicTacToeBoardComponent implements OnInit {
   ngOnInit() {
   }
 
-  private newGame() {
+  public newGame() {
     for (let i = 0; i< this.boardContent.length; i++) {
       this.boardContent[i] = -1;
     }
@@ -61,13 +61,11 @@ export class TicTacToeBoardComponent implements OnInit {
     //   console.log(event.keyCode);
     // let move = event.key;
 
-    if (move == "Enter") {
-      // if (this.boardContent[this.userLocation] == -1) {
+    if (move == "x") {
+      if (this.boardContent[this.userLocation] == -1) {
         this.boardContent[this.userLocation] = this.userTurn;
         this.userTurn = (this.userTurn + 1) % 2;
-      // }
-      this.checkForWinner(0);
-      this.checkForWinner(1);
+      }
     }
 
     if (move == "w") {  // UP
@@ -126,7 +124,7 @@ export class TicTacToeBoardComponent implements OnInit {
   }
 
 
-  private checkForWinner(player: number) {
+  public checkForWinner(player: number): boolean {
     if (
       (
         this.boardContent[0] == player &&
@@ -170,7 +168,9 @@ export class TicTacToeBoardComponent implements OnInit {
       )
     ) {
       console.log("player " + player + " wins!");
+      return true;
     }
+    return false;
   }
 
 
