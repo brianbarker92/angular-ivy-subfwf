@@ -13,8 +13,9 @@ export class TicTacToeBoardComponent implements OnInit {
     this.handleUserKeyPress(key);
   }
 
-  boardContent: number[][] =  [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]];
-
+  boardContent: number[] =  [-1,-1,-1,-1,-1,-1,-1,-1,-1,];
+  isSelected: boolean[] = [true,false,false,false,false,false,false,false,false];
+  
   constructor() { }
 
   ngOnInit() {
@@ -32,6 +33,15 @@ export class TicTacToeBoardComponent implements OnInit {
  */
   userLocation: number = 0;
 
+  private updateUserLocation() {
+    for (let i = 0; i< this.isSelected.length; i++) {
+      if (i == this.userLocation) {
+        this.isSelected[i] = true;
+      } else {
+        this.isSelected[i] = false;
+      }
+    }
+  }
 
 //  private handleUserKeyPress(event: KeyboardEvent) {
 
@@ -59,7 +69,7 @@ export class TicTacToeBoardComponent implements OnInit {
       this.userLocation = this.moveRight();
     }
 
-    // this.userMovedEvent.emit(this.userLocation);
+    this.updateUserLocation();
   }
 
   private moveUp(): number {

@@ -2,39 +2,14 @@
 tic-tac-toe-board works!
 </p>
 <div class="main-board-panel">
-  <div id="zero-zero" class="selected-tile">
-    <div *ngIf="boardContent[0][0]==-1">
-      <p>empty</p>
-    </div>
-    <div *ngIf="boardContent[0][0]==0">
-      <p>0</p>
-    </div>
-    <div *ngIf="boardContent[0][0]==1">
-      <p>1</p>
-    </div>
-  </div>
-  <div id="zero-one" class="tile">
+  <tile [selected]="isSelected[0]" [content]="boardContent[0]"></tile>
+  <tile [selected]="isSelected[1]" [content]="boardContent[1]"></tile>
+  <tile [selected]="isSelected[2]" [content]="boardContent[2]"></tile>
+  <tile [selected]="isSelected[3]" [content]="boardContent[3]"></tile>
+  <tile [selected]="isSelected[4]" [content]="boardContent[4]"></tile>
+  <tile [selected]="isSelected[5]" [content]="boardContent[5]"></tile>
+  <tile [selected]="isSelected[6]" [content]="boardContent[6]"></tile>
+  <tile [selected]="isSelected[7]" [content]="boardContent[7]"></tile>
+  <tile [selected]="isSelected[8]" [content]="boardContent[8]"></tile>
 
-  </div>
-  <div id="zero-two" class="tile">
-
-  </div>
-  <div id="one-zero" class="tile">
-
-  </div>
-  <div id="one-one" class="tile">
-
-  </div>
-  <div id="one-two" class="tile">
-
-  </div>
-  <div id="two-zero" class="tile">
-
-  </div>
-  <div id="two-one" class="tile">
-
-  </div>
-  <div id="two-two" class="tile">
-
-  </div>
 </div>
