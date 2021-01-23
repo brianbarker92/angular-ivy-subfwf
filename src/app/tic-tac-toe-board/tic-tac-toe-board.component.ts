@@ -21,6 +21,14 @@ export class TicTacToeBoardComponent implements OnInit {
   ngOnInit() {
   }
 
+  private newGame() {
+    for (let i = 0; i< this.boardContent.length; i++) {
+      this.boardContent[i] = -1;
+    }
+    this.userLocation = 0;
+    this.userTurn = 0;
+    this.updateUserLocation();
+  }
 
 
 
@@ -54,10 +62,12 @@ export class TicTacToeBoardComponent implements OnInit {
     // let move = event.key;
 
     if (move == "Enter") {
-      if (this.boardContent[this.userLocation] == -1) {
+      // if (this.boardContent[this.userLocation] == -1) {
         this.boardContent[this.userLocation] = this.userTurn;
         this.userTurn = (this.userTurn + 1) % 2;
-      }
+      // }
+      this.checkForWinner(0);
+      this.checkForWinner(1);
     }
 
     if (move == "w") {  // UP
@@ -114,5 +124,54 @@ export class TicTacToeBoardComponent implements OnInit {
       return this.userLocation;
     }
   }
+
+
+  private checkForWinner(player: number) {
+    if (
+      (
+        this.boardContent[0] == player &&
+        this.boardContent[1] == player &&
+        this.boardContent[2] == player
+      )    ||
+      (
+        this.boardContent[3] == player &&
+        this.boardContent[4] == player &&
+        this.boardContent[5] == player
+      )    ||
+      (
+        this.boardContent[6] == player &&
+        this.boardContent[7] == player &&
+        this.boardContent[8] == player
+      )    ||
+      (
+        this.boardContent[0] == player &&
+        this.boardContent[3] == player &&
+        this.boardContent[6] == player
+      )    ||
+      (
+        this.boardContent[1] == player &&
+        this.boardContent[4] == player &&
+        this.boardContent[7] == player
+      )    ||
+      (
+        this.boardContent[2] == player &&
+        this.boardContent[5] == player &&
+        this.boardContent[8] == player
+      )    ||
+      (
+        this.boardContent[0] == player &&
+        this.boardContent[4] == player &&
+        this.boardContent[8] == player
+      )    ||
+      (
+        this.boardContent[2] == player &&
+        this.boardContent[4] == player &&
+        this.boardContent[6] == player
+      )
+    ) {
+      console.log("player " + player + " wins!");
+    }
+  }
+
 
 }
