@@ -1,22 +1,10 @@
-   <div *ngIf="selected" class="selected-tile">
-    <div *ngIf="content==-1">
-      <p>empty</p>
-    </div>
-    <div *ngIf="content==0">
-      <p>0</p>
-    </div>
-    <div *ngIf="content==1">
-      <p>1</p>
-    </div>
+<div *ngIf="selected" class="selected-tile">
+  <div>
+    <player-art [playerNumber]="content"></player-art>
   </div>
-  <div *ngIf="!selected" class="tile">
-    <div *ngIf="content==-1">
-      <p>empty</p>
-    </div>
-    <div *ngIf="content==0">
-      <p>0</p>
-    </div>
-    <div *ngIf="content==1">
-      <p>1</p>
-    </div>
+</div>
+<div *ngIf="!selected" class="tile">
+  <div>
+    <player-art [playerNumber]="content"></player-art>
   </div>
+</div>
