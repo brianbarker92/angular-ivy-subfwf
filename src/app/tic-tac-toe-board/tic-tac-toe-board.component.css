@@ -29,3 +29,25 @@
    display:inline;
 
 }
+
+.turn-tracker {
+  width: 80%;
+  height: 100px;
+  border: solid;
+  border-radius: 5px;
+  border-width: 3px;
+  margin: 10px;
+  
+}
+
+.player-turn-icon {
+  height: 90px;
+  width: 90px;
+  
+}
+
+.turn-tracker-component {
+    float:left;
+   display:inline;
+   margin: 10px;
+}

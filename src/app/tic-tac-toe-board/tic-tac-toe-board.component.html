@@ -1,4 +1,4 @@
-<div *ngIf="checkForWinner(0)">
+<!-- <div *ngIf="checkForWinner(0)">
 <p>
 Player 1 wins!
 </p>
@@ -7,13 +7,46 @@ Player 1 wins!
 <p>
 Player 2 wins!
 </p>
-</div>
+</div> -->
 <p>
 <button (click)="newGame()">New Game</button>
 </p>
-<div>
-  <p>Player {{userTurn + 1}}'s Turn</p>
+<div class="turn-tracker">
+  <!-- PLAYER ONE WINS -->
+  <div *ngIf="checkForWinner(0)">
+    <div class="turn-tracker-component">
+    <p>Player </p>
+    </div>
+    <div class="player-turn-icon turn-tracker-component">
+      <player-art [playerNumber]="0"></player-art>
+    </div>
+    <div class="turn-tracker-component">
+    <p>Wins! </p>
+    </div>
+  </div>
+  <!-- PLAYER TWO WINS -->
+  <div *ngIf="checkForWinner(1)">
+    <div class="turn-tracker-component">
+    <p>Player </p>
+    </div>
+    <div class="player-turn-icon turn-tracker-component">
+      <player-art [playerNumber]="1"></player-art>
+    </div>
+    <div class="turn-tracker-component">
+    <p>Wins! </p>
+    </div>
+  </div>
+    <!-- TURN TRACKER -->
+  <div *ngIf="!checkForWinner(1) && !checkForWinner(0)">
+    <div class="turn-tracker-component">
+    <p>Player Turn:</p>
+    </div>
+    <div class="player-turn-icon turn-tracker-component">
+      <player-art [playerNumber]="userTurn"></player-art>
+    </div>
+  </div>  
 </div>
+<!-- MAIN TIC TAC TOE BOARD -->
 <div class="main-board-panel">
   <tile [selected]="isSelected[0]" [content]="boardContent[0]"></tile>
   <tile [selected]="isSelected[1]" [content]="boardContent[1]"></tile>
@@ -25,4 +58,24 @@ Player 2 wins!
   <tile [selected]="isSelected[7]" [content]="boardContent[7]"></tile>
   <tile [selected]="isSelected[8]" [content]="boardContent[8]"></tile>
 
+</div>
+
+<div class="turn-tracker">
+    <!-- SHOWS BOTH PLAYERS -->
+  <div>
+    <div class="turn-tracker-component">
+    <p>Player One:</p>
+    </div>
+    <div class="player-turn-icon turn-tracker-component">
+      <player-art [playerNumber]="0"></player-art>
+    </div>
+  </div>
+  <div>
+    <div class="turn-tracker-component">
+    <p>Player Two:</p>
+    </div>
+    <div class="player-turn-icon turn-tracker-component">
+      <player-art [playerNumber]="1"></player-art>
+    </div>
+  </div>  
 </div>
