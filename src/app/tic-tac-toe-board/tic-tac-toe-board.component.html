@@ -1,18 +1,18 @@
 <div *ngIf="checkForWinner(0)">
 <p>
-Player 0 wins!
+Player 1 wins!
 </p>
 </div>
 <div *ngIf="checkForWinner(1)">
 <p>
-Player 1 wins!
+Player 2 wins!
 </p>
 </div>
 <p>
 <button (click)="newGame()">New Game</button>
 </p>
 <div>
-  <p>Player {{userTurn}}'s Turn</p>
+  <p>Player {{userTurn + 1}}'s Turn</p>
 </div>
 <div class="main-board-panel">
   <tile [selected]="isSelected[0]" [content]="boardContent[0]"></tile>
