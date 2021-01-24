@@ -55,13 +55,9 @@ export class TicTacToeBoardComponent implements OnInit {
 //  private handleUserKeyPress(event: KeyboardEvent) {
 
   public handleUserKeyPress(move: string) {
-    //   console.log("user keypress:");
-    //   console.log(event);
-    //   console.log(event.key);
-    //   console.log(event.keyCode);
-    // let move = event.key;
 
-    if (move == "x") {
+    // console.log(move);
+    if (move == " ") {
       if (this.boardContent[this.userLocation] == -1) {
         this.boardContent[this.userLocation] = this.userTurn;
         this.userTurn = (this.userTurn + 1) % 2;
@@ -167,7 +163,7 @@ export class TicTacToeBoardComponent implements OnInit {
         this.boardContent[6] == player
       )
     ) {
-      console.log("player " + player + " wins!");
+      // console.log("player " + player + " wins!");
       return true;
     }
     return false;
